@@ -23,7 +23,7 @@
 
 ---
 
-## 🌟 Overview
+## Overview
 
 **LibraryManagement** is a Windows Forms desktop application written in **C#** on the **.NET Framework 4.7.2** platform. The application allows an administrator to:
 
@@ -35,20 +35,20 @@ The project uses a clean **2-tier architecture**, with the presentation (UI) lay
 
 ---
 
-## ✨ Features
+##  Features
 
 | Feature | Description |
 |-----------|-------|
-| 📋 **List view** | Displays all accounts in a DataGridView with a polished UI |
-| 🔍 **Real-time search** | Type a keyword → the table filters instantly (no button needed) |
-| 🏷️ **Filter by role** | Quick filter: Admin / Staff / All |
-| ✏️ **Edit information** | Click a row → edit the details → click Save |
-| 🎨 **Modern UI** | Navy + blue color palette, Segoe UI font, alternating row colors |
-| ⚡ **Performance** | Filters data in-memory on the DataTable, with no repeated SQL queries |
+| **List view** | Displays all accounts in a DataGridView with a polished UI |
+| **Real-time search** | Type a keyword → the table filters instantly (no button needed) |
+| **Filter by role** | Quick filter: Admin / Staff / All |
+| **Edit information** | Click a row → edit the details → click Save |
+| **Modern UI** | Navy + blue color palette, Segoe UI font, alternating row colors |
+| **Performance** | Filters data in-memory on the DataTable, with no repeated SQL queries |
 
 ---
 
-## 💻 System Requirements
+## System Requirements
 
 | Component | Minimum Requirement |
 |------------|-------------------|
@@ -61,38 +61,38 @@ The project uses a clean **2-tier architecture**, with the presentation (UI) lay
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 LibraryManagement/
 │
-├── 📄 Program.cs                            # Application entry point
-├── 📄 Database.cs                           # Database connection class (reads the connection string from App.config)
-├── 📄 AccountDAL.cs                         # Data access layer (SELECT, UPDATE)
+├── Program.cs                            # Application entry point
+├── Database.cs                           # Database connection class (reads the connection string from App.config)
+├── AccountDAL.cs                         # Data access layer (SELECT, UPDATE)
 │
-├── 📄 frmAccountManagement.cs               # Business logic for the main form
-├── 📄 frmAccountManagement.Designer.cs      # UI layout of the main form
-├── 📄 frmAccountManagement.resx             # Form resources
+├── frmAccountManagement.cs               # Business logic for the main form
+├── frmAccountManagement.Designer.cs      # UI layout of the main form
+├── frmAccountManagement.resx             # Form resources
 │
-├── 📄 App.config                            # Configuration file — contains the SQL connection string
-├── 📄 LibraryManagement.csproj              # MSBuild project file
-├── 📄 packages.config                       # List of NuGet packages
-├── 📄 README.md                             # This guide file
+├── App.config                            # Configuration file — contains the SQL connection string
+├── LibraryManagement.csproj              # MSBuild project file
+├── packages.config                       # List of NuGet packages
+├── README.md                             # This guide file
 │
-├── 📂 Properties/                           # Assembly info & resources
+├── Properties/                           # Assembly info & resources
 │   ├── AssemblyInfo.cs
 │   ├── Resources.resx
 │   ├── Resources.Designer.cs
 │   ├── Settings.settings
 │   └── Settings.Designer.cs
 │
-├── 📂 bin/Debug/                            # Build output (.exe file)
-└── 📂 obj/                                  # Compiler intermediate files
+├── bin/Debug/                            # Build output (.exe file)
+└── obj/                                  # Compiler intermediate files
 ```
 
 ---
 
-## 🚀 Setup Guide
+##  Setup Guide
 
 ### Step 1: Create the database on SQL Server
 
@@ -142,7 +142,7 @@ Open the **`App.config`** file and change `Data Source` to your SQL Server insta
 </connectionStrings>
 ```
 
-> **📝 Note:**
+> **Note:**
 > - `Data Source=YOUR_SERVER_NAME` → replace with your SQL Server instance name (e.g. `LAPTOP-ABC`, `.\SQLEXPRESS`, `localhost`)
 > - `Integrated Security=True` → uses Windows authentication (no username/password required)
 > - If using SQL Authentication instead, replace with: `User ID=sa;Password=123456;`
@@ -153,11 +153,11 @@ Open the **`App.config`** file and change `Data Source` to your SQL Server insta
 2. Press **Ctrl + Shift + B** to build
 3. Press **F5** (or Ctrl + F5) to run
 
-> ⚠️ If any NuGet packages are missing, Visual Studio will automatically restore them on build.
+>  If any NuGet packages are missing, Visual Studio will automatically restore them on build.
 
 ---
 
-## 📖 Usage Guide
+## Usage Guide
 
 ### 1. View the account list
 When the application opens, the table displays all accounts. The columns include:
@@ -170,7 +170,7 @@ When the application opens, the table displays all accounts. The columns include
 - **Created Date** — The date the account was created
 
 ### 2. Search
-Type a keyword into the **"🔍 Search"** box in the toolbar. The table filters automatically as you type, searching across all 4 columns: Account ID, Username, Full Name, and Email.
+Type a keyword into the **" Search"** box in the toolbar. The table filters automatically as you type, searching across all 4 columns: Account ID, Username, Full Name, and Email.
 
 ### 3. Filter by role
 Choose a role from the **"Role"** ComboBox: `(All)`, `Admin`, or `Staff (NhanVien)`.
@@ -178,12 +178,12 @@ Choose a role from the **"Role"** ComboBox: `(All)`, `Admin`, or `Staff (NhanVie
 ### 4. Edit account information
 1. **Click** the row you want to edit in the table → its details appear in the **"Account Details"** panel on the right
 2. **Edit** the fields: Full Name, Gender, Email, Role
-3. Click the **"💾 Save Changes"** button
+3. Click the **" Save Changes"** button
 4. On success → a "Changes saved successfully!" message is shown
 
 ---
 
-## 🗄️ Database Structure
+##  Database Structure
 
 ### Table `TaiKhoan` (Account)
 
@@ -215,7 +215,7 @@ Choose a role from the **"Role"** ComboBox: `(All)`, `Admin`, or `Staff (NhanVie
 
 ---
 
-## 🏗️ Software Architecture
+##  Software Architecture
 
 The project uses a **2-tier architecture**:
 
@@ -249,7 +249,7 @@ User → Form (UI) → DAL → SQL Server → DAL → Form (UI) → Display
 
 ---
 
-## 📝 File-by-File Explanation
+## File-by-File Explanation
 
 ### 1. `Program.cs` — Entry point
 - Contains the `Main()` function — where the program starts
@@ -282,130 +282,3 @@ User → Form (UI) → DAL → SQL Server → DAL → Form (UI) → Display
 
 ---
 
-## 🎨 UI Color Palette
-
-The project uses a modern, professional color palette:
-
-| Element | Color | Hex | RGB |
-|------------|-----|---------|-----|
-| Header / Title | 🔵 Deep navy | `#1B2A4A` | (27, 42, 74) |
-| Save button / Accent | 🔷 Blue | `#007ACC` | (0, 122, 204) |
-| Delete button | 🔴 Red | `#DC3545` | (220, 53, 69) |
-| Form background | ⬜ Very light gray | `#F3F4F6` | (243, 244, 246) |
-| Panel / GroupBox background | ⬜ White | `#FFFFFF` | (255, 255, 255) |
-| Header text | ⬜ White | `#FFFFFF` | (255, 255, 255) |
-| Label text | 🔘 Medium gray | `#6B7280` | (107, 114, 128) |
-| Value text | ⚫ Near-black | `#1F2937` | (31, 41, 55) |
-| DataGridView alternating row | 🔵 Very light blue | `#EAF2FC` | (234, 242, 252) |
-| Selected row | 🔷 Blue | `#007ACC` | (0, 122, 204) |
-| Table gridlines | ⬜ Light gray | `#E5E7EB` | (229, 231, 235) |
-
-> 💡 **Want to change the theme?** Edit the `Color.FromArgb(...)` values in `frmAccountManagement.Designer.cs`. Every color is clearly commented on its own line.
-
----
-
-## 🔧 Extension Guide
-
-### Add a "Delete account" feature
-
-The **"Delete account"** button currently has no logic attached. To add it:
-
-**1. Add a method in `AccountDAL.cs`:**
-```csharp
-public static int Xoa(string maTaiKhoan)
-{
-    using (SqlConnection conn = Database.GetConnection())
-    using (SqlCommand cmd = new SqlCommand(
-        "DELETE FROM TaiKhoan WHERE MaTaiKhoan = @MaTaiKhoan", conn))
-    {
-        cmd.Parameters.AddWithValue("@MaTaiKhoan", maTaiKhoan);
-        conn.Open();
-        return cmd.ExecuteNonQuery();
-    }
-}
-```
-
-**2. Wire up the event in `frmAccountManagement.cs`:**
-```csharp
-private void btnXoa_Click(object sender, EventArgs e)
-{
-    if (lblMa.Text == "—") return;
-
-    var confirm = MessageBox.Show(
-        "Are you sure you want to delete this account?",
-        "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-    if (confirm == DialogResult.Yes)
-    {
-        AccountDAL.Xoa(lblMa.Text.Trim());
-        TaiKhoanTaiLai();
-    }
-}
-```
-
-### Add a new form (e.g. Book Management)
-
-1. Create `frmBookManagement.cs` and `frmBookManagement.Designer.cs`
-2. Create `BookDAL.cs` with SELECT/INSERT/UPDATE/DELETE methods
-3. Use `frmAccountManagement` as a reference template
-
-### Add a new table to the database
-
-1. Create the new table in SQL Server
-2. Create a new DAL file (e.g. `BookDAL.cs`)
-3. Create a new form with its Designer file
-4. No need to modify `Database.cs` or `App.config`
-
----
-
-## ❓ Troubleshooting
-
-### Error: "Connection or data-loading error"
-**Cause:** Could not connect to SQL Server.
-**Fix:**
-1. Check that SQL Server is running (open **Services** → look for **SQL Server**)
-2. Check the server name in `App.config` (`Data Source=...`)
-3. Check that the `QLThuVien` database exists
-
-### Error: "Cannot find table 'TaiKhoan'"
-**Cause:** The TaiKhoan table has not been created yet.
-**Fix:** Run the SQL script in [Setup Guide](#step-1-create-the-database-on-sql-server)
-
-### Error: Build failed — missing packages
-**Cause:** NuGet packages have not been restored.
-**Fix:** In Visual Studio → **Tools** → **NuGet Package Manager** → **Restore NuGet Packages**
-
-### Error: "Login failed for user..."
-**Cause:** SQL Server does not accept Windows Authentication.
-**Fix:** Change `Integrated Security=True` to `User ID=sa;Password=YOUR_PASSWORD` in `App.config`
-
----
-
-## 🤝 Contributing
-
-If you'd like to contribute to this project:
-
-1. **Fork** this repository
-2. Create a new branch: `git checkout -b feature/your-feature-name`
-3. Commit your changes: `git commit -m "Add XYZ feature"`
-4. Push: `git push origin feature/your-feature-name`
-5. Open a **Pull Request**
-
----
-
-## 📜 License
-
-This project was built for **learning purposes**. You're free to use, modify, and distribute it.
-
----
-
-## 👥 Contact Information
-
-- **Project:** Library Management
-- **Platform:** C# WinForms (.NET Framework 4.7.2)
-- **Database:** SQL Server
-- **Recommended IDE:** Visual Studio 2019+
-
----
-
-> 💡 **Tip for beginners:** Read the code in this order: `Program.cs` → `Database.cs` → `AccountDAL.cs` → `frmAccountManagement.cs` → `frmAccountManagement.Designer.cs`. Every file has detailed line-by-line comments!
