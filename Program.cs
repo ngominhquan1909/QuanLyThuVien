@@ -10,7 +10,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace QuanLyThuVien
+namespace LibraryManagement
 {
     /// <summary>
     /// Lớp Program chứa hàm Main — nơi chương trình bắt đầu chạy.
@@ -34,7 +34,7 @@ namespace QuanLyThuVien
 
             // Tạo và hiển thị form chính — form Quản Lý Tài Khoản
             // Chương trình sẽ chạy cho đến khi form này bị đóng
-            Application.Run(new frmQuanLyTaiKhoan());
+            Application.Run(new frmAccountManagement());
         }
     }
 }

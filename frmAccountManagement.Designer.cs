@@ -1,10 +1,10 @@
 // =====================================================================
-// File: frmQuanLyTaiKhoan.Designer.cs
+// File: frmAccountManagement.Designer.cs
 // Mô tả: File thiết kế giao diện (Designer) cho form Quản Lý Tài Khoản.
 //         File này được Visual Studio tự sinh ra khi kéo thả control.
 //         ⚠️  Ở đây ta chỉnh tay để làm đẹp giao diện (màu, font, bo góc...).
-//         → Logic nghiệp vụ nằm trong frmQuanLyTaiKhoan.cs
-//         → Kết nối SQL nằm trong Database.cs và TaiKhoanDAL.cs
+//         → Logic nghiệp vụ nằm trong frmAccountManagement.cs
+//         → Kết nối SQL nằm trong Database.cs và AccountDAL.cs
 //
 // NGUYÊN TẮC CẢI THIỆN GIAO DIỆN:
 //   • Bảng màu chính: xanh navy (#1B2A4A) + trắng + xám nhạt
@@ -15,9 +15,9 @@
 //   • Thanh tiêu đề tự vẽ: Panel gradient xanh navy ở trên cùng
 // =====================================================================
 
-namespace QuanLyThuVien
+namespace LibraryManagement
 {
-    partial class frmQuanLyTaiKhoan
+    partial class frmAccountManagement
     {
         /// <summary>
         /// Biến quản lý tài nguyên của form (bắt buộc, do Designer sinh ra).
@@ -535,7 +535,7 @@ namespace QuanLyThuVien
             this.MaximizeBox = false;                                                    // Ẩn nút phóng to
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;    // Mở giữa màn hình
             this.Text = "Quản Lý Thư Viện — Tài Khoản";                                 // Tiêu đề cửa sổ
-            this.Name = "frmQuanLyTaiKhoan";
+            this.Name = "frmAccountManagement";
 
             // --- Thêm các control vào form (theo thứ tự vẽ) ---
             this.Controls.Add(this.gbChiTiet);     // GroupBox chi tiết

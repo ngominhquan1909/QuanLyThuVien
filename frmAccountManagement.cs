@@ -1,5 +1,5 @@
 // =====================================================================
-// File: frmQuanLyTaiKhoan.cs
+// File: frmAccountManagement.cs
 // Mô tả: File chứa LOGIC NGHIỆP VỤ cho form Quản Lý Tài Khoản.
 //         - Nạp dữ liệu từ SQL Server khi form mở
 //         - Lọc / tìm kiếm danh sách tài khoản real-time
@@ -8,8 +8,8 @@
 //         - Format cột GioiTinh (true→"Nam", false→"Nữ")
 //
 // LƯU Ý: File này KHÔNG chứa code giao diện (UI).
-//         Giao diện nằm trong frmQuanLyTaiKhoan.Designer.cs
-//         Truy vấn SQL nằm trong TaiKhoanDAL.cs
+//         Giao diện nằm trong frmAccountManagement.Designer.cs
+//         Truy vấn SQL nằm trong AccountDAL.cs
 // =====================================================================
 
 using System;              // Chứa các kiểu cơ bản: Exception, DateTime, Convert, ...
@@ -17,15 +17,15 @@ using System.Data;         // Chứa DataTable, DataRowView dùng để lưu d�
 using System.Drawing;      // Chứa Color, Font, ... để tùy chỉnh giao diện
 using System.Windows.Forms; // Chứa Form, Button, TextBox, MessageBox, ... (WinForms)
 
-namespace QuanLyThuVien
+namespace LibraryManagement
 {
     /// <summary>
     /// Form chính — Quản lý danh sách tài khoản.
     /// "partial class" nghĩa là lớp được chia thành 2 file:
-    ///   - frmQuanLyTaiKhoan.cs         → logic xử lý (file này)
-    ///   - frmQuanLyTaiKhoan.Designer.cs → giao diện (Designer)
+    ///   - frmAccountManagement.cs         → logic xử lý (file này)
+    ///   - frmAccountManagement.Designer.cs → giao diện (Designer)
     /// </summary>
-    public partial class frmQuanLyTaiKhoan : Form
+    public partial class frmAccountManagement : Form
     {
         // ─────────────────────────────────────────────────────────
         // BIẾN TOÀN CỤC — Lưu dữ liệu tạm cho cả form
@@ -42,15 +42,15 @@ namespace QuanLyThuVien
         // ═════════════════════════════════════════════════════════
 
         /// <summary>
-        /// Constructor — được gọi khi tạo form (new frmQuanLyTaiKhoan()).
+        /// Constructor — được gọi khi tạo form (new frmAccountManagement()).
         /// </summary>
-        public frmQuanLyTaiKhoan()
+        public frmAccountManagement()
         {
             // Dựng (render) toàn bộ giao diện từ file Designer.cs
             InitializeComponent();
 
-            // Đăng ký sự kiện Load: khi form hiện ra → gọi frmQuanLyTaiKhoan_Load
-            this.Load += frmQuanLyTaiKhoan_Load;
+            // Đăng ký sự kiện Load: khi form hiện ra → gọi frmAccountManagement_Load
+            this.Load += frmAccountManagement_Load;
         }
 
         // ═════════════════════════════════════════════════════════
@@ -61,7 +61,7 @@ namespace QuanLyThuVien
         /// Sự kiện Load — được gọi tự động khi form hiển thị lần đầu.
         /// Nhiệm vụ: nạp dữ liệu ComboBox, lấy danh sách từ SQL, áp dụng bộ lọc.
         /// </summary>
-        private void frmQuanLyTaiKhoan_Load(object sender, EventArgs e)
+        private void frmAccountManagement_Load(object sender, EventArgs e)
         {
             try
             {
@@ -78,7 +78,7 @@ namespace QuanLyThuVien
                 cboVaiTro.SelectedIndex = 1;                           // Mặc định chọn "NhanVien"
 
                 // ── Lấy danh sách tài khoản từ SQL Server ──
-                _dt = TaiKhoanDAL.LayDanhSach();                       // Gọi DAL để SELECT
+                _dt = AccountDAL.LayDanhSach();                       // Gọi DAL để SELECT
                 dgvTaiKhoan.DataSource = _dt;                          // Gán dữ liệu cho bảng
 
                 // ── Áp dụng bộ lọc ban đầu và cập nhật số tài khoản ──
@@ -236,7 +236,7 @@ namespace QuanLyThuVien
         ///   1. Kiểm tra đã chọn tài khoản chưa
         ///   2. Kiểm tra đã chọn giới tính chưa
         ///   3. Kiểm tra đã chọn vai trò chưa
-        ///   4. Gọi TaiKhoanDAL.CapNhat() để UPDATE vào SQL Server
+        ///   4. Gọi AccountDAL.CapNhat() để UPDATE vào SQL Server
         ///   5. Nếu thành công → tải lại danh sách
         /// </summary>
         private void btnLuu_Click(object sender, EventArgs e)
@@ -278,7 +278,7 @@ namespace QuanLyThuVien
             // ── BƯỚC 4: Gọi DAL để cập nhật vào SQL Server ──
             try
             {
-                int soDong = TaiKhoanDAL.CapNhat(
+                int soDong = AccountDAL.CapNhat(
                     lblMa.Text.Trim(),       // Mã tài khoản (WHERE)
                     txtHoTen.Text.Trim(),    // Họ tên mới
                     rdoNam.Checked,          // Giới tính (true = Nam)
@@ -329,7 +329,7 @@ namespace QuanLyThuVien
         private void TaiKhoanTaiLai()
         {
             // Truy vấn lại SQL để lấy dữ liệu mới nhất
-            _dt = TaiKhoanDAL.LayDanhSach();
+            _dt = AccountDAL.LayDanhSach();
             dgvTaiKhoan.DataSource = _dt;
 
             // Áp dụng lại bộ lọc hiện tại (nếu đang lọc)

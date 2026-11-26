@@ -1,5 +1,5 @@
 // =====================================================================
-// File: TaiKhoanDAL.cs
+// File: AccountDAL.cs
 // Mô tả: Lớp Data Access Layer (DAL) cho bảng TaiKhoan.
 //         Chứa các phương thức giao tiếp trực tiếp với SQL Server:
 //           - LayDanhSach(): Lấy toàn bộ danh sách tài khoản
@@ -12,11 +12,11 @@ using System.Data;               // Chứa DataTable, DataSet, ... dùng để l
 using System.Data.SqlClient;     // Thư viện SqlCommand, SqlDataAdapter (dự phòng)
 
 /// <summary>
-/// Lớp tĩnh TaiKhoanDAL — tầng truy cập dữ liệu cho bảng TaiKhoan.
+/// Lớp tĩnh AccountDAL — tầng truy cập dữ liệu cho bảng TaiKhoan.
 /// "DAL" viết tắt của Data Access Layer (tầng truy cập dữ liệu).
-/// Dùng "static" để gọi thẳng TaiKhoanDAL.LayDanhSach() mà không cần new.
+/// Dùng "static" để gọi thẳng AccountDAL.LayDanhSach() mà không cần new.
 /// </summary>
-public static class TaiKhoanDAL
+public static class AccountDAL
 {
     /// <summary>
     /// Lấy danh sách tất cả tài khoản từ bảng TaiKhoan trong SQL Server.
